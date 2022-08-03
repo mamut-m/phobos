@@ -22,6 +22,7 @@ import pkgutil
 import bpy
 import phobos
 
+
 def import_submodules(package, recursive=True, verbose=False):
     """Import all submodules of a module, recursively, including subpackages.
         If a module is already imported it is reloaded instead.
@@ -86,7 +87,7 @@ import_submodules(phobos, verbose=True)
 
 def register():
     """This function registers all modules to blender.
-    
+
     :return: Nothing
 
     Args:
@@ -94,7 +95,7 @@ def register():
     Returns:
 
     """
-    #bpy.utils.register_module(__name__)
+    # bpy.utils.register_module(__name__)
     phobos.operators.selection.register()
     phobos.operators.io.register()
     phobos.operators.editing.register()
@@ -110,4 +111,4 @@ def unregister():
     print("Unregistering Phobos...")
     # TODO delete all imported modules to resolve reregistration conflicts
     phobos.phobosgui.unregister()
-    bpy.utils.unregister_module(__name__)
+    # bpy.utils.unregister_tool(__name__)
